@@ -46,10 +46,15 @@ dev_appserver.py app.yaml
 /api/authors/create
 ```
 
+#### Project endpoints collection for Postman at:
+```
+Flask MongoDB API Example.postman_collection.json
+```
+
 #### Project deployment and hosted at:
-```
+
 https://news-portal-dev.uc.r.appspot.com
-```
+
 
 #### Git Repo:
 https://github.com/vsgobbi/news_api
