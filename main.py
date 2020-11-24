@@ -1,7 +1,5 @@
-from datetime import datetime
-from flask import Flask, jsonify, make_response, request
+from flask import Flask, jsonify, make_response
 from flask.json import JSONEncoder
-from models.client import PyMongoParser, authors_collection, news_collection
 from authors.authors import authors
 from news.news import news
 
