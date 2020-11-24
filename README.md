@@ -16,7 +16,7 @@ news json example:
  
 
 ### Using Google Cloud App Engine Python38 Standard Environment with MongoDB using libs as: <br>
- 'python3' standard, 'flask', 'pymongo', 'flask jwt'
+ 'python3 standard, 'flask' and 'pymongo'
 
 ## **Usage**
 #### Install venv:
