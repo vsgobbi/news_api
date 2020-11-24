@@ -52,7 +52,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Teste titulo 3 de uma noticia\",\n    \"content\": \"Algum conteudo alterado novamente 231321 3121231 321321 3213\",\n    \"author_id\": 3219129391111\n}",
+							"raw": "{\n    \"id\": \"5fbcad9dd967744d21c4e031\",\n    \"title\": \"Title of some changed random news again\",\n    \"content\": \"This is an updated content of something...\",\n    \"author_id\": \"5fbc850015eb9bbca94c209b\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
