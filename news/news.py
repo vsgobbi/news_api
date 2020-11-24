@@ -80,48 +80,6 @@ def add_news():
     return make_response(jsonify({"success": PyMongoParser.parse_json(added_news.inserted_id)}), 201)
 
 
-@news.route("/update", methods=["POST"])
-def update_news():
-
-    if not request.json:
-        return make_response(jsonify({"error": "empty json body"}), 400)
-
-    title = request.json['title']
-    content = request.json['content']
-    author_id = request.json['author_id']
-
-    title, errors = NewsValidator.title_validators(title)
-    content, errors = NewsValidator.content_validators(content)
-    author_id, errors = AuthorValidator.author_key_validators(author_id)
-
-    if len(errors) > 0:
-        print(errors)
-        return make_response(jsonify({'error': errors}), 400)
-
-    data = {
-        "title": title,
-        "content": content,
-        "author_id": author_id,
-        "created_at": datetime.now()
-    }
-
-    try:
-        existing_new = news_collection.find_one({"title": title})
-    except:
-        existing_new = None
-
-    if not existing_new:
-        return make_response(jsonify({"error": "News with title '{}' not found".format(title)}), 404)
-
-    try:
-        if existing_new and existing_new.title == title:
-            data.update({"id": existing_new.id})
-            # updated_new = News(**data).save()
-            return make_response(jsonify({"success": updated_new}), 201)
-    except Exception as error:
-        return make_response(jsonify({"error": "error on updating: {}".format(error)}), 400)
-
-
 @news.route("/delete", methods=["DELETE"])
 def delete_news():
     id = request.args.get('id')
@@ -142,3 +100,52 @@ def delete_news():
         return make_response(jsonify({"error": "News not found or already deleted"}), 404)
 
     return make_response(jsonify({"success": "deleted news {}".format(news.get("_id"))}), 202)
+
+
+@news.route("/update", methods=["POST"])
+def update_news():
+    news = None
+
+    if not request.json:
+        return make_response(jsonify({"error": "empty json body"}), 400)
+
+    id = request.json.get("id")
+    title = request.json.get("title")
+    content = request.json.get("content")
+    author_id = request.json.get("author_id")
+
+    if id:
+        news_obj_id = ObjectId(id)
+        news = news_collection.find_one({"_id": news_obj_id})
+
+    if not news:
+        return make_response(jsonify({"error": "News id {} not found".format(id)}), 400)
+
+    title, errors = NewsValidator.title_validators(title)
+    content, errors = NewsValidator.content_validators(content)
+    author_id, errors = AuthorValidator.author_key_validators(author_id)
+
+    if len(errors) > 0:
+        print(errors)
+        return make_response(jsonify({"error": errors}), 400)
+
+    obj_id = ObjectId(author_id)
+    author = authors_collection.find_one({"_id": obj_id})
+
+    if not author:
+        return make_response(jsonify({"error": "author with id {} does not exist".format(author_id)}), 400)
+
+    data = {
+        "title": title,
+        "content": content,
+        "updated_at": datetime.now(),
+        "author": author,
+    }
+
+    try:
+        news.update(data)
+        news_collection.save(news)
+        return make_response(jsonify({"success": PyMongoParser.parse_json(news)}), 201)
+    except Exception as error:
+        print(error)
+        return make_response(jsonify({"error": "error on updating: {}".format(error)}), 400)
