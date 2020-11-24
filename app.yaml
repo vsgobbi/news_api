@@ -1,0 +1,8 @@
+runtime: python38
+
+handlers:
+- url: /.*
+  secure: always
+  script: auto
+env_variables:
+    GAE_USE_SOCKETS_HTTPLIB : 'true'

@@ -1,0 +1,6 @@
+flask
+pymongo
+pymongo[srv]
+dnspython
+# oauth2client==4.1.3
+# google-api-core
