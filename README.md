@@ -4,9 +4,16 @@
 ## Description
 Micro API built with flask backend as example. <br>
 Endpoints are: 'create', 'update', 'delete' and 'view' <br>
-'News'
-Welcome and Reminders email when receiving a new registration form from www.agig.app/cadastro integrated with Google Sheets API.
-and from validation form.
+'News' and 'Authors' CRUD using MongoDB Atlas. <br>
+news json example:
+```
+{
+    "title": "Pymongo if very fun and Python is Beautiful!",
+    "content": "This is another content of something...",
+    "author_id": "5fbcb69ff66d1f21699ba150"
+}
+```
+ 
 
 ### Using Google Cloud App Engine with MongoDB using libs as: <br> 'anom', 'python3' standard, 'flask', 'flask jwt'
 
@@ -39,23 +46,11 @@ dev_appserver.py app.yaml
 /api/authors/create
 ```
 
-Project deploy and hosted at:
+#### Project deployment and hosted at:
 ```
 https://news-portal-dev.uc.r.appspot.com
 ```
 
-#### Deploy cron job to GAE
-```
-gcloud app deploy cron.yaml --project encoded-shape-249320
-```
-
-#### To view your application in the web browser run:
-```
-gcloud app browse
-```
-
-#### To upload your cron jobs, 
-you must specify the cron.yaml as a parameter to the following gcloud command:
-```
-gcloud app deploy cron.yaml
-```
+#### Git Repo:
+https://github.com/vsgobbi/news_api
+#### GPL licensed: @vsgobbi
