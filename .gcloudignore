@@ -1,0 +1,19 @@
+# Tests folders and files
+*tests/
+*tests.py
+tests/*
+tests/
+
+# Virtual Env files
+README.md
+venv/*
+
+# Cached and temp files
+*.pkl
+.idea/*
+__pycache__/*
+*.log
+*.pyc
+*tests.py
+*/*.pyc
+*.output
