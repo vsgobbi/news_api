@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "a9cf3557-006a-4d79-9265-2b58f9c5c43b",
+		"name": "Flask MongoDB API Example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "NEWS",
+			"item": [
+				{
+					"name": "POST NEWS",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Pymongo if very fun and Python is Beautiful!\",\n    \"content\": \"This is another content of something...\",\n    \"author_id\": \"5fbcb69ff66d1f21699ba150\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://news-portal-dev.uc.r.appspot.com/api/news/create",
+							"protocol": "https",
+							"host": [
+								"news-portal-dev",
+								"uc",
+								"r",
+								"appspot",
+								"com"
+							],
+							"path": [
+								"api",
+								"news",
+								"create"
+							]
+						},
+						"description": "Create new "
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE NEWS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Teste titulo 3 de uma noticia\",\n    \"content\": \"Algum conteudo alterado novamente 231321 3121231 321321 3213\",\n    \"author_id\": 3219129391111\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://news-portal-dev.uc.r.appspot.com/api/news/update",
+							"protocol": "https",
+							"host": [
+								"news-portal-dev",
+								"uc",
+								"r",
+								"appspot",
+								"com"
+							],
+							"path": [
+								"api",
+								"news",
+								"update"
+							]
+						},
+						"description": "Create new "
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE NEWS",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://news-portal-dev.uc.r.appspot.com/api/news/delete?id=5fbc848877e52b7ecc7705f4",
+							"protocol": "https",
+							"host": [
+								"news-portal-dev",
+								"uc",
+								"r",
+								"appspot",
+								"com"
+							],
+							"path": [
+								"api",
+								"news",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5fbc848877e52b7ecc7705f4"
+								},
+								{
+									"key": "title",
+									"value": "Python and MongoDB and App Engine",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Create new "
+					},
+					"response": []
+				},
+				{
+					"name": "GET NEWS {ID}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://news-portal-dev.uc.r.appspot.com/api/news",
+							"protocol": "https",
+							"host": [
+								"news-portal-dev",
+								"uc",
+								"r",
+								"appspot",
+								"com"
+							],
+							"path": [
+								"api",
+								"news"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "PyMongoDB and App Engine",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "5fbc8c26f40d5683ffd4781f",
+									"disabled": true
+								},
+								{
+									"key": "author",
+									"value": "Gregório",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Create new "
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "AUTHORS",
+			"item": [
+				{
+					"name": "POST AUTHORS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Marcos de Almeida Neto\",\n    \"city\": \"São Paulo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/authors/create",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"authors",
+								"create"
+							]
+						},
+						"description": "Create new "
+					},
+					"response": []
+				},
+				{
+					"name": "GET AUTHORS {ID}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://news-portal-dev.uc.r.appspot.com/api/authors?id=5fbcb69ff66d1f21699ba150",
+							"protocol": "https",
+							"host": [
+								"news-portal-dev",
+								"uc",
+								"r",
+								"appspot",
+								"com"
+							],
+							"path": [
+								"api",
+								"authors"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5fbcb69ff66d1f21699ba150"
+								}
+							]
+						},
+						"description": "Create new "
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "GET API /",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://news-portal-dev.uc.r.appspot.com",
+					"protocol": "https",
+					"host": [
+						"news-portal-dev",
+						"uc",
+						"r",
+						"appspot",
+						"com"
+					]
+				},
+				"description": "Create new "
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
